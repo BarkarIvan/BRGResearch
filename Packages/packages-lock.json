@@ -7,13 +7,6 @@
       "dependencies": {},
       "url": "https://npm.beresnev.games"
     },
-    "com.beresnevgames.vat-animation": {
-      "version": "0.0.1",
-      "depth": 0,
-      "source": "registry",
-      "dependencies": {},
-      "url": "https://npm.beresnev.games"
-    },
     "com.lizzyfox-code.brg-container": {
       "version": "https://github.com/LizzyFox-code/BrgContainer.git",
       "depth": 0,

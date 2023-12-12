@@ -1,7 +1,6 @@
 {
   "dependencies": {
     "com.beresnevgames.sirenix.odin-inspector": "3.1.6",
-    "com.beresnevgames.vat-animation": "0.0.1",
     "com.lizzyfox-code.brg-container": "https://github.com/LizzyFox-code/BrgContainer.git",
     "com.unity.2d.sprite": "1.0.0",
     "com.unity.2d.tilemap": "1.0.0",
