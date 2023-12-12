@@ -1,0 +1,30 @@
+#pragma kernel UpdateArgs
+
+struct IndirectDrawIndexedArgs {
+    uint indexCountPerInstance;
+    uint instanceCount;
+    uint startIndex;
+    uint baseVertex;
+    uint startInstance;
+};
+
+struct MeshMetaData {
+    uint vertexOffset;
+    uint indexOffset;
+    uint indexCount;
+};
+
+RWStructuredBuffer<IndirectDrawIndexedArgs> argsBuffer;
+StructuredBuffer<MeshMetaData> metaData;
+
+
+[numthreads(1,1,1)]
+void UpdateArgs (uint3 id : SV_DispatchThreadID)
+{
+    uint selectedMesh = id.x % 2; 
+    argsBuffer[0].indexCountPerInstance = metaData[selectedMesh].indexCount;
+    argsBuffer[0].instanceCount = 10;
+    argsBuffer[0].startIndex = metaData[selectedMesh].indexOffset;
+    argsBuffer[0].baseVertex = metaData[selectedMesh].vertexOffset;
+    argsBuffer[0].startInstance = 0;   
+}

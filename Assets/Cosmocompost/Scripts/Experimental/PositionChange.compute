@@ -1,0 +1,17 @@
+#pragma kernel CSPositionChange
+
+StructuredBuffer<float3> positionBufferR;
+RWStructuredBuffer<float3> positionBufferW;
+StructuredBuffer<half3> directionBuffer;
+
+[numthreads(64,1,1)]
+void CSPositionChange (uint3 id : SV_DispatchThreadID)
+{
+    half3 dir = directionBuffer[id.x];
+    float3 newPos =  positionBufferR[id.x];
+    newPos += dir * 0.01f;
+    positionBufferW[id.x] = newPos;
+   
+}
+
+
